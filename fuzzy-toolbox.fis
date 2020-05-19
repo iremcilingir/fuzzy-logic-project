@@ -1,0 +1,48 @@
+[System]
+Name='fuzzy-toolbox'
+Type='mamdani'
+Version=2.0
+NumInputs=2
+NumOutputs=1
+NumRules=9
+AndMethod='min'
+OrMethod='max'
+ImpMethod='prod'
+AggMethod='max'
+DefuzzMethod='centroid'
+
+[Input1]
+Name='Talebin_Geldiği_Müşteri_Sayısı'
+Range=[1 15]
+NumMFs=3
+MF1='Az':'trimf',[-1 3 7]
+MF2='Orta':'trimf',[2.1 6.9 14.9]
+MF3='Çok':'trimf',[7 12 18]
+
+[Input2]
+Name='Yazılım_Eforu'
+Range=[1 6]
+NumMFs=3
+MF1='Eforu_Az':'trimf',[-1 1 3]
+MF2='Eforu_Orta':'trimf',[1 3 5]
+MF3='Eforu_Çok':'trimf',[3 5 7]
+
+[Output1]
+Name='Yapılma_Durumu'
+Range=[0 10]
+NumMFs=4
+MF1='Yapılmamalı':'trimf',[-1 1 2]
+MF2='Kanaat_Kullanılmalı':'trimf',[1 4 7]
+MF3='Yapılmalı':'trimf',[6 7 9]
+MF4='Multaka_Yapılmalı':'trimf',[8.01689189189189 9.01689189189189 12.0168918918919]
+
+[Rules]
+1 1, 2 (1) : 1
+1 2, 1 (1) : 1
+1 3, 1 (1) : 1
+2 1, 3 (1) : 1
+2 2, 2 (1) : 1
+2 3, 2 (1) : 1
+3 1, 4 (1) : 1
+3 2, 3 (1) : 1
+3 3, 2 (1) : 1
